@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+}
+
+body, html {
+  height: 100%;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+}
+
+header {
+  height: 150px;
+  background-color: rgb(52, 59, 87);
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: rgb(11, 212, 240);
+}
+
+main {
+  background-color: rgb(59, 67, 98);
+}
+
+h1 {
+  text-align: center;
+  padding-top: 50px;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.arrows {
+  height: 300px;
+  width: 200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.up {
+  margin: 20px;
+}
+
+.moves {
+  display: inline-block;
+}
+
+.left {
+  text-align: left;
+  margin-left: 40px;
+}
+
+.right {
+  padding: 40px;
+}
+
+.down {
+  margin: 20px;
+}
+
+button {
+  height: 70px;
+  width: 150px;
+  background-color: rgb(59, 67, 98);
+  border-radius: 20px;
+  border-color: rgb(11, 212, 240);
+  text-transform: uppercase;
+  outline: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: rgb(38, 176, 185);
+  color: black;
+}
+
+.play {
+  height: 100px;
+  width: 200px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+#gamearea {
+  width: 600px;
+  height: 500px;
+  background-color: black;
+  margin: 0 auto;
+}
+
+p {
+  text-align: center;
+}
+
+footer {
+  height: 100px;
+  color: white;
+  background-color: rgb(52, 59, 87);
+}

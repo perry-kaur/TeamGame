@@ -1,0 +1,31 @@
+
+
+.row {
+  display: table;
+}
+
+.wall {
+  background-color: brown;
+}
+
+.space {
+  background-color: black;
+}
+
+.pacman {
+  background-color: yellow;
+}
+
+.coin {
+  background-image: radial-gradient(yellow, black, black);
+}
+
+.wall, .space, .pacman, .coin, .monster {
+  height: 30px;
+  width:  30px;
+  display: table-cell;
+}
+
+.monster {
+  background-color: orange;
+}

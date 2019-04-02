@@ -16,15 +16,13 @@ class Game {
 
     this.monsters = [
       new Monster(1, 11),
-      new Monster(1, 9),
-      new Monster(1, 5),
-      new Monster(1, 3)
+      new Monster(1, 9)
     ]
   }
 
   drawMap() {
     document.getElementById("map").innerHTML = "";
-    this._positionPacman();
+
     for (let j = 0; j < this.map.length; j++) {
 
       let row = document.createElement("div");
@@ -36,6 +34,7 @@ class Game {
         row.appendChild(block);
       }
     }
+    this._positionPacman();
   }
 
   moveMonsters() {

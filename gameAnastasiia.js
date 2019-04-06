@@ -1,7 +1,11 @@
 class Monster {
   constructor(x, y) {
-    this.x = x;
-    this.y = y;
+    this.x = x; //current x position
+    this.y = y; //current y position
+    this.p = 1; //
+    this.dx = 0; //current x direction
+    this.dy = 0; //current y direction
+    this.v = S;
   }
 }
 
@@ -9,9 +13,13 @@ class Game {
   constructor(map, pacmanX, pacmanY) {
     this.map = map;
     this.score = 0;
+    this.lifes = 5;
+
     this.pacman = {
-      x: pacmanX,
-      y: pacmanY
+      x: pacmanX, //pacman current x position
+      y: pacmanY, // pacman current y position
+      dx: 0, // current x direction
+      dy: 0 //current y direction
     }
 
     this.monsters = [
@@ -20,13 +28,50 @@ class Game {
     ]
   }
 
+  startGame() {
+    document.onkeydown = (e) => {
+      const L = 37; // left
+      const U = 38; // up
+      const R = 39; // right
+      const D = 40; // down
+
+      //console.log(e.keyCode)
+
+      //choose pacman direction
+      this.pacman.dx = (e.keyCode == L) ? -1 : (e.keyCode == R) ? +1 : 0;
+      this.pacman.dy = (e.keyCode == U) ? -1 : (e.keyCode == D) ? +1 : 0;
+    }
+
+    this.loop()
+  }
+
+  isGameFinished() {
+    return this.score >= 11 || this.lifes == 0;
+  }
+
+  loop() {
+    //console.log(this.pacman)
+    if (!this.isGameFinished()) {
+      this.movePacman();
+
+      this.moveMonsters();
+
+      this.drawMap();
+
+      setTimeout(() => {
+        this.loop()
+      }, 500)
+    }
+  }
+
+
   drawMap() {
     document.getElementById("map").innerHTML = "";
 
     for (let j = 0; j < this.map.length; j++) {
 
       let row = document.createElement("div");
-      row.className = "row"
+      row.className = "row";
       document.getElementById("map").appendChild(row);
 
       for (let i = 0; i < this.map[j].length; i++) {
@@ -34,104 +79,113 @@ class Game {
         row.appendChild(block);
       }
     }
-    this._positionPacman();
   }
 
   moveMonsters() {
-    if (this.score < 11) {
-      for (let i = 0; i < this.monsters.length; i++) {
-        this.moveMonster(this.monsters[i]);
-      }
-
-      this.drawMap();
-
-      setTimeout(() => {
-        this.moveMonsters();
-      }, 200);
+    for (let i = 0; i < this.monsters.length; i++) {
+      this.moveMonster(this.monsters[i]);
     }
   }
 
-  moveMonster(monster) {
-    let dx = 0, dy = 0;
+  getRandomDirection(x, y) { // choose monster random direction
+    let opts = [];
+
+    let w = this.map[0].length - 1
+    let h = this.map.length - 1
+
+    if (y > 0 && (this.map[y - 1][x + 0] == S || this.map[y - 1][x + 0] == C)) opts.push([+0, -1]); // up
+    if (x < w && (this.map[y - 0][x + 1] == S || this.map[y - 0][x + 1] == C)) opts.push([+1, +0]); // right
+    if (y < h && (this.map[y + 1][x + 0] == S || this.map[y + 1][x + 0] == C)) opts.push([+0, +1]); // down
+    if (x > 0 && (this.map[y - 0][x - 1] == S || this.map[y - 0][x - 1] == C)) opts.push([-1, +0]); // left
+
+    if (opts.length > 0)
+      return opts[Math.floor(Math.random() * opts.length)];
+    else
+      return [0, 0];
+  }
+
+  moveMonster(m) {
+    let x = m.x + m.dx;
+    let y = m.y + m.dy;
 
     let r = Math.random();
-    if (r < 0.25) {
-      dx = +0; dy = +1;
-    } else if (r < 0.50) {
-      dx = +0; dy = -1;
-    } else if (r < 0.75) {
-      dx = +1; dy = +0;
+    if ((this.map[y][x] == S || this.map[y][x] == C) && (m.p < r)) {
+      m.p += 0.1;
     } else {
-      dx = -1; dy = +0;
+      let [dx, dy] = this.getRandomDirection(m.x, m.y);
+      m.dx = dx;
+      m.dy = dy;
+      x = m.x + m.dx;
+      y = m.y + m.dy;
+      m.p = 0;
     }
 
-    if (this.map[monster.y + dy][monster.x + dx] == 0) {
-      this.map[monster.y][monster.x] = 0;
-      monster.x += dx;
-      monster.y += dy;
-      this.map[monster.y][monster.x] = 4;
-    }
+    this.map[m.y][m.x] = m.v;
+    m.x = x;
+    m.y = y;
+    m.v = this.map[m.y][m.x];
+    this.map[m.y][m.x] = M;
   }
 
   movePacman() {
-    this.map[this.monsters[0].y][this.monsters[0].x] = 4;
-    this.drawMap();
+    let x = this.pacman.x + this.pacman.dx;
+    let y = this.pacman.y + this.pacman.dy;
 
-    this.moveMonsters()
-
-    document.onkeydown = (e) => {
-      let dx = 0, dy = 0;
-      switch (e.keyCode) {
-        case 37: dx = -1; dy = +0; break; // left
-        case 38: dx = +0; dy = -1; break; // up
-        case 39: dx = +1; dy = +0; break; // right
-        case 40: dx = +0; dy = +1; break; // down
-      }
-
-      switch (this.map[this.pacman.y + dy][this.pacman.x + dx]) {
-        case 3: this.updateScore();
-        case 0: this.map[this.pacman.y][this.pacman.x] = 0;
-                this.pacman.x += dx;
-                this.pacman.y += dy;
-                this.drawMap();
-      }
+    switch (this.map[y][x]) {
+      case C:
+        this.updateScore();
+      case S:
+        this.map[this.pacman.y][this.pacman.x] = S;
+        this.pacman.x = x;
+        this.pacman.y = y;
+        this.map[this.pacman.y][this.pacman.x] = P;
     }
   }
 
+  // mpMeet() {
+  //
+  // }
+
   updateScore() {
     this.score++;
+    console.log("Score is " + this.score);
   }
 
-
-  _positionPacman() {
-    this.map[this.pacman.y][this.pacman.x] = 2;
+  looseLifes() {
+    this.lifes--;
+    console.log("Lifes is " + this.lifes);
   }
 
   _createBlock(n) {
-    const styles = ["space", "wall", "pacman", "coin", "monster"];
     let block = document.createElement("div");
     block.className = styles[n];
     return block;
   }
-
 }
 
-let matrix = [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-              [1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1],
-              [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1],
-              [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
-              [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1],
-              [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1],
-              [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-              [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1],
-              [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1],
-              [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
-              [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1],
-              [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]];
+const S = 0; // spce
+const W = 1; // wall
+const P = 2; // pacman
+const C = 3; // coin
+const M = 4; // monster
 
+const styles = ["space", "wall", "pacman", "coin", "monster"];
 
+let matrix = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1],
+  [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1],
+  [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+  [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1],
+  [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1],
+  [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1],
+  [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+  [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1],
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+];
 
 let game = new Game(matrix, 6, 6);
-game.drawMap();
-game.movePacman();
+game.startGame();

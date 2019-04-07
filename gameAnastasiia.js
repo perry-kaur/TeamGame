@@ -46,7 +46,7 @@ class Game {
   }
 
   isGameFinished() {
-    return this.score >= 11 || this.lifes == 0;
+    return this.score >= 11 || this.pacmanDies();
   }
 
   loop() {
@@ -55,6 +55,8 @@ class Game {
       this.movePacman();
 
       this.moveMonsters();
+
+      this.pacmanDies();
 
       this.drawMap();
 
@@ -109,7 +111,7 @@ class Game {
     let y = m.y + m.dy;
 
     let r = Math.random();
-    if ((this.map[y][x] == S || this.map[y][x] == C) && (m.p < r)) {
+    if ((this.map[y][x] == S || this.map[y][x] == C || this.map[y][x] == P) && (m.p < r)) {
       m.p += 0.1;
     } else {
       let [dx, dy] = this.getRandomDirection(m.x, m.y);
@@ -142,19 +144,24 @@ class Game {
     }
   }
 
-  // mpMeet() {
-  //
-  // }
+  pacmanDies() {
+    for (let i = 0; i < this.monsters.length; i++) {
+      if (this.monsters[i].x == this.pacman.x && this.monsters[i].y == this.pacman.y){
+        this.map[this.pacman.y][this.pacman.x] = 5;
+        return true;
+      }
+    }
+  }
 
   updateScore() {
     this.score++;
     console.log("Score is " + this.score);
   }
 
-  looseLifes() {
-    this.lifes--;
-    console.log("Lifes is " + this.lifes);
-  }
+  // looseLifes() {
+  //   this.lifes--;
+  //   console.log("Lifes is " + this.lifes);
+  // }
 
   _createBlock(n) {
     let block = document.createElement("div");
@@ -169,7 +176,8 @@ const P = 2; // pacman
 const C = 3; // coin
 const M = 4; // monster
 
-const styles = ["space", "wall", "pacman", "coin", "monster"];
+
+const styles = ["space", "wall", "pacman", "coin", "monster", "collision"];
 
 let matrix = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],

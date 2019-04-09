@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Color of address bar in mobile browser -->
+    <meta name="theme-color" content="#191923">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Main -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <!-- Elements -->
+    <link rel="stylesheet" href="css/elements.css">
+    <!-- Media queries -->
+    <link rel="stylesheet" href="css/media-queries.css">
+    <!-- Primary color -->
+    <!--<link rel="stylesheet" href="css/primary-color/red.css">-->
+    <!-- red -->
+    <!--<link rel="stylesheet" href="css/primary-color/green.css">-->
+    <!-- green -->
+    <!--<link rel="stylesheet" href="css/primary-color/orange.css">-->
+    <!-- orange -->
+    <link rel="stylesheet" href="css/primary-color/coral.css"> <!-- coral -->
+    <!-- Overlay color -->
+    <!--<link rel="stylesheet" href="css/overlay-color/violet.css">-->
+    <!-- violet -->
+    <link rel="stylesheet" href="css/overlay-color/blue.css"> <!-- blue -->
+
+    <!-- Favicon  -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Page title  -->
+    <title>Sonix</title>
+
+    <!-- Demo css -->
+    <link rel="stylesheet" href="demo/demo.css">
+
+</head>
+
+<body>
+    <!-- Frame -->
+    <div class="frame">
+        <!--- DEMO (delete it) -->
+        <div class="color-change">
+            <!--- color -->
+            <div class="open-changer"><i class="fas fa-cog"></i></div>
+            <a href="javascript:void(0)" class="swapColor orange" data-theme="orange"></a>
+            <a href="javascript:void(0)" class="swapColor coral" data-theme="coral"></a>
+            <a href="javascript:void(0)" class="swapColor red" data-theme="red"></a>
+            <a href="javascript:void(0)" class="swapColor green" data-theme="green"></a>
+            <!--- overlay -->
+            <a href="javascript:void(0)" class="swapOverlay o-violet" data-theme="violetoverlay"></a>
+            <a href="javascript:void(0)" class="swapOverlay o-blue" data-theme="blueoverlay"></a>
+        </div>
+        <!--- DEMO (delete it) end -->
+        <!-- Custom cursor -->
+        <div class='cursor'></div>
+        <div class='cursor pet'></div>
+        <!-- Custom cursor end -->
+        <!-- Preloader -->
+        <div class="preloader">
+            <!-- Preloader svg image -->
+            <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                    <!-- Preloader animation -->
+                    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                </path>
+            </svg>
+        </div>
+        <!-- Preloader end -->
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- dotted background -->
+            <div class="dots"></div>
+            <!-- Open button -->
+            <div class="menu-btn hover menu-open"><i class="fas fa-bars"></i></div>
+            <!-- Close button -->
+            <div class="menu-btn hover menu-close"><i class="fas fa-times"></i></div>
+            <!-- Language -->
+            <div class="lang">
+                <p>Language:</p>
+                <a href="#.">FR</a>
+                <a href="#." class="active">EN</a>
+            </div>
+            <!-- Language end -->
+            <!-- Menu -->
+            <ul class="menu">
+                <!-- Menu dropdown item -->
+                <li class="menu-item">
+                    <a href="#home-dropdown" class="menu-link collapsed" data-toggle="collapse" aria-expanded="false">Home</a>
+                    <!-- Dropdown list -->
+                    <ul class="collapse drop-menu" id="home-dropdown">
+                        <!-- Dropdown item -->
+                        <li><a href="home-image.html" class="new-page-sidebar">Home image header</a></li>
+                        <!-- Dropdown item -->
+                        <li><a href="home-slideshow.html" class="new-page-sidebar">Home slideshow header</a></li>
+                        <!-- Dropdown item -->
+                        <li><a href="home-video.html" class="new-page-sidebar">Home video header</a></li>
+                    </ul>
+                    <!-- Dropdown list end -->
+                </li>
+                <!-- Menu dropdown item end -->
+                <!-- Menu dropdown item -->
+                <li class="menu-item">
+                    <a href="#portfolio-dropdown" class="menu-link" data-toggle="collapse" aria-expanded="false">Works</a>
+                    <!-- Dropdown list -->
+                    <ul class="collapse drop-menu" id="portfolio-dropdown">
+                        <!-- Dropdown item -->
+                        <li><a href="works-fullscreen.html" class="new-page-sidebar">Fullscreen slider</a></li>
+                        <!-- Dropdown item -->
+                        <li><a href="works-carousel.html" class="new-page-sidebar">Fullscreen carousel</a></li>
+                        <!-- Dropdown item -->
+                        <li><a href="works-masonry-3-col.html" class="new-page-sidebar">Masonry 3 column</a></li>
+                        <!-- Dropdown item -->
+                        <li><a href="works-masonry-2-col.html" class="new-page-sidebar">Masonry 2 column</a></li>
+                        <!-- Dropdown item -->
+                        <li><a href="works-classic-3-col.html" class="new-page-sidebar">Classic grid 3 column</a></li>
+                        <!-- Dropdown item -->
+                        <li><a href="works-classic-2-col.html" class="new-page-sidebar">Classic grid 2 column</a></li>
+                        <!-- Dropdown item -->
+                        <li><a href="single-work.html" class="new-page-sidebar">Single project</a></li>
+                    </ul>
+                    <!-- Dropdown list end -->
+                </li>
+                <!-- Menu dropdown item end -->
+                <!-- Menu item -->
+                <li class="menu-item">
+                    <a href="about.html" class="menu-link new-page-sidebar">About</a>
+                </li>
+                <!-- Menu dropdown item -->
+                <li class="menu-item">
+                    <a href="#news-dropdown" class="menu-link" data-toggle="collapse" aria-expanded="false">News</a>
+                    <!-- Dropdown list -->
+                    <ul class="collapse drop-menu" id="news-dropdown">
+                        <!-- Dropdown item -->
+                        <li><a href="blog.html" class="new-page-sidebar">List view</a></li>
+                        <!-- Dropdown item -->
+                        <li><a href="blog-post.html" class="new-page-sidebar">Single post</a></li>
+                    </ul>
+                    <!-- Dropdown list end -->
+                </li>
+                <!-- Menu dropdown item end -->
+                <li class="menu-item">
+                    <!-- Menu link -->
+                    <a href="contact.html" class="menu-link new-page-sidebar">Contact</a>
+                </li>
+                <!-- Social icons -->
+                <li>
+                    <ul class="social mt-15">
+                        <!-- Social link -->
+                        <li><a href="#."><i class="fab fa-facebook-f"></i></a></li>
+                        <!-- Social link -->
+                        <li><a href="#."><i class="fab fa-twitter"></i></a></li>
+                        <!-- Social link -->
+                        <li><a href="#."><i class="fab fa-behance"></i></a></li>
+                        <!-- Social link -->
+                        <li><a href="#."><i class="fab fa-pinterest-p"></i></a></li>
+                        <!-- Social link -->
+                        <li><a href="#."><i class="fab fa-github"></i></a></li>
+                    </ul>
+                </li>
+                <!-- Social icons end -->
+            </ul>
+            <!-- Menu end -->
+        </div>
+        <!-- Sidebar end -->
+        <!-- Page wrapper -->
+        <div id="page-wrapper" class="page-wrapper">
+            <!-- Header -->
+            <header id="header" class="header">
+                <!-- Top panel -->
+                <div class="top-panel">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a href="index.html">
+                            <!-- Image logo -->
+                            <!--<img style="width: 100px;" src="img/your_logo.png" alt="logo">-->
+                            <!-- Text logo -->
+                            <p class="logo-text new-page">S<span class="color logo-fix">o</span>nix</p>
+                        </a>
+                    </div>
+                    <!-- Logo end -->
+                    <!-- Page navigation -->
+                    <ul class="navigation">
+                        <!-- Navigation link -->
+                        <li><a class="default-link smooth-scroll" href="#anchor-1">Portfolio</a></li>
+                        <!-- Navigation link -->
+                        <li><a class="default-link smooth-scroll" href="#anchor-2">Studio</a></li>
+                        <!-- Navigation link -->
+                        <li><a class="default-link smooth-scroll" href="https://themeforest.net/item/sonix-creative-portfolio-showcase-template/23334129">Buy Sonix</a></li>
+                    </ul>
+                    <!-- Page navigation end -->
+                </div>
+                <!-- Top panel end -->
+                <!-- header background -->
+                <div class="header-bg" style="background-image: url(img/portfolio/lg/1.jpg); background-position: bottom"></div>
+                <!-- header background end -->
+                <!-- Gradient overlay -->
+                <div class="overlay"></div>
+                <!-- header background end -->
+                <div class="container header-content">
+                    <div class="main-title text-center">
+                        <!-- Main-title -->
+                        <h1 class="bold a-f mb-20">Creative <span class="color">solutions</span> <br> and fresh ideas</h1>
+                        <div class="main-title-buttons a-f">
+                            <!-- Button -->
+                            <a href="contact.html" class="button button-1 margin-sm-bottom new-page">Contact us <i class="fas fa-chevron-right"></i></a>
+                            <!-- Button -->
+                            <a href="#anchor-1" class="button smooth-scroll">Discover now <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Scroll hint -->
+                    <div class="scroll-hint">
+                        <a href="#anchor-1" class="smooth-scroll">
+                            <!-- Mouse -->
+                            <div class="mouse">
+                                <!-- Finger -->
+                                <div class="finger"></div>
+                            </div>
+                            <!-- Mouse end -->
+                            <!-- Hint text -->
+                            <p>scroll down</p>
+                        </a>
+                    </div>
+                    <!-- Scroll hint end -->
+                </div>
+            </header>
+            <!-- Header end -->
+            <!-- Portfolio -->
+            <section id="portfolio" class="portfolio p-60-0-0 a-f">
+                <div class="container-fluid">
+                    <!-- Grid -->
+                    <div id="anchor-1" class="grid grid-3">
+                        <!-- Case -->
+                        <div class="grid-item digital-art photography objects mb-30">
+                            <!-- Card -->
+                            <div class="project-card tilt md" data-tilt>
+                                <!-- Case cover -->
+                                <img src="img/portfolio/sm/1.jpg" alt="project">
+                                <!-- Case description -->
+                                <div class="project-title">
+                                    <!-- Title -->
+                                    <h3 class="title bold">Space Bedroom</h3>
+                                    <!-- More button -->
+                                    <a href="single-work.html" class="more new-page-in"><i class="fas fa-chevron-right"></i></a>
+                                </div>
+                                <!-- Case description end -->
+                            </div>
+                            <!-- Card end -->
+                        </div>
+                        <!-- Case end -->
+                        <!-- Case -->
+                        <div class="grid-item digital-art advertising mb-30">
+                            <!-- Card -->
+                            <div class="project-card tilt sm" data-tilt>
+                                <!-- Case cover -->
+                                <img src="img/portfolio/sm/2.jpg" alt="project">
+                                <!-- Case description -->
+                                <div class="project-title">
+                                    <!-- Title -->
+                                    <h3 class="bold">Neural Dive</h3>
+                                    <!-- More button -->
+                                    <a href="single-work.html" class="more new-page-in"><i class="fas fa-chevron-right"></i></a>
+                                </div>
+                                <!-- Case description end -->
+                            </div>
+                            <!-- Card end -->
+                        </div>
+                        <!-- Case end -->
+                        <!-- Case -->
+                        <div class="grid-item art-direction mb-30">
+                            <!-- Card -->
+                            <div class="project-card tilt md" data-tilt>
+                                <!-- Case cover -->
+                                <img src="img/portfolio/sm/3.jpg" alt="project">
+                                <!-- Case description -->
+                                <div class="project-title">
+                                    <!-- Title -->
+                                    <h3 class="bold">Drunk Aliens</h3>
+                                    <!-- More button -->
+                                    <a href="single-work.html" class="more new-page-in"><i class="fas fa-chevron-right"></i></a>
+                                </div>
+                                <!-- Case description end -->
+                            </div>
+                            <!-- Card end -->
+                        </div>
+                        <!-- Case end -->
+                        <!-- Case -->
+                        <div class="grid-item advertising photography mb-30">
+                            <!-- Card -->
+                            <div class="project-card tilt md" data-tilt>
+                                <!-- Case cover -->
+                                <img src="img/portfolio/sm/5.jpg" alt="project">
+                                <!-- Case description -->
+                                <div class="project-title">
+                                    <!-- Title -->
+                                    <h3 class="title bold">Harmful Nature</h3>
+                                    <!-- More button -->
+                                    <a href="single-work.html" class="more new-page-in"><i class="fas fa-chevron-right"></i></a>
+                                </div>
+                                <!-- Case description end -->
+                            </div>
+                            <!-- Card end -->
+                        </div>
+                        <!-- Case end -->
+                        <!-- Case -->
+                        <div class="grid-item art-direction digital-art photography mb-30">
+                            <!-- Card -->
+                            <div class="project-card tilt lg" data-tilt>
+                                <!-- Case cover -->
+                                <img src="img/portfolio/sm/4.jpg" alt="project">
+                                <!-- Case description -->
+                                <div class="project-title">
+                                    <!-- Title -->
+                                    <h3 class="title bold">Neuromancer</h3>
+                                    <!-- More button -->
+                                    <a href="single-work.html" class="more new-page-in"><i class="fas fa-chevron-right"></i></a>
+                                </div>
+                                <!-- Case description end -->
+                            </div>
+                            <!-- Card end -->
+                        </div>
+                        <!-- Case end -->
+                        <!-- Case -->
+                        <div class="grid-item photography digital-art mb-30">
+                            <!-- Card -->
+                            <div class="project-card tilt lg" data-tilt>
+                                <!-- Case cover -->
+                                <img src="img/portfolio/sm/6.jpg" alt="project">
+                                <!-- Case description -->
+                                <div class="project-title">
+                                    <!-- Title -->
+                                    <h3 class="title bold">Astro Rock</h3>
+                                    <!-- More button -->
+                                    <a href="single-work.html" class="more new-page-in"><i class="fas fa-chevron-right"></i></a>
+                                </div>
+                                <!-- Case description end -->
+                            </div>
+                        </div>
+                        <!-- Case end -->
+                        <!-- Case -->
+                        <div class="grid-item photography digital-art mb-30">
+                            <!-- Card -->
+                            <div class="project-card tilt sm" data-tilt>
+                                <!-- Case cover -->
+                                <img src="img/portfolio/sm/7.jpg" alt="project">
+                                <!-- Case description -->
+                                <div class="project-title">
+                                    <!-- Title -->
+                                    <h3 class="bold">The Verge</h3>
+                                    <!-- More button -->
+                                    <a href="single-work.html" class="more new-page-in"><i class="fas fa-chevron-right"></i></a>
+                                </div>
+                                <!-- Case description end -->
+                            </div>
+                        </div>
+                        <!-- Case end -->
+                    </div>
+                    <!-- Grid end -->
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6 align-self-center mb-30">
+                            <!-- Call to action -->
+                            <p class="opas light">Make your business easier and start with us, <br>Start Now and get 20% offer for a limited time</p>
+                        </div>
+                        <div class="col-12 col-md-6 text-left text-md-right mb-30">
+                            <!-- Button -->
+                            <a href="works-masonry-3-col.html" class="button button-1 new-page-in">Load more <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Portfolio end -->
+            <!-- Info -->
+            <section id="info" class="info p-60-0-60">
+                <div class="container">
+                    <div class="row">
+                        <div id="anchor-2" class="col-12 col-lg-6 mb-30">
+                            <!-- Section title -->
+                            <h2 class="bold mb-20">We are a <span class="color">leader</span> in the European market</h2>
+                            <!-- Text -->
+                            <p class="light opas mb-15">Hello there!</p>
+                            <!-- Text -->
+                            <p class="light opas mb-30">Adipisicing elit. Animi enim consectetur quam neque blanditiis iusto, omnis, aspernatur tempore accusantium perspiciatis excepturi labore eos, ipsa delectus, dolorum ipsam. Sint quibusdam, reiciendis inventore aut explicabo minus, quod ipsum magni optio repellat, dolorem unde! Ut laboriosam tenetur, blanditiis. Nihil, et impedit repellat expedita.</p>
+                            <!-- Button -->
+                            <a href="about.html" class="button button-1 new-page-right">More about us <i class="fas fa-chevron-right"></i></a>
+                            <!-- Mark -->
+                            <img src="img/mark.svg" alt="mark" class="b-mark">
+                        </div>
+                        <div class="col 12 col-lg-6 row text-left text-lg-right no-gutters">
+                            <div class="col-6 mb-30">
+                                <!-- Count -->
+                                <p class="h2 opas bold count-1"></p>
+                                <!-- Count description -->
+                                <h4 class="up light opas">Unique Customers</h4>
+                            </div>
+                            <div class="col-6 mb-30">
+                                <!-- Count -->
+                                <p class="h2 opas bold count-3"></p>
+                                <!-- Count description -->
+                                <h4 class="up light opas">Happy Users</h4>
+                            </div>
+                            <div class="col-6 mb-30">
+                                <!-- Count -->
+                                <p class="h2 bold opas count-2"></p>
+                                <!-- Count description -->
+                                <h4 class="up light opas">Completed Projects</h4>
+                            </div>
+                            <div class="col-6 mb-30">
+                                <!-- Count -->
+                                <p class="h2 color bold count-4"></p>
+                                <!-- Count description -->
+                                <h4 class="up light opas">Honors and Awards</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Info end -->
+            <!-- Brands -->
+            <div id="brands" class="brands p-0-0-60">
+                <div class="container">
+                    <!-- Brand list -->
+                    <div class="row text-center">
+                        <div class="col-6 col-lg-3 mb-30">
+                            <!-- brand logo -->
+                            <img src="img/brand/brand-1.png" alt="brand">
+                        </div>
+                        <div class="col-6 col-lg-3 mb-30">
+                            <!-- brand logo -->
+                            <img src="img/brand/brand-2.png" alt="brand">
+                        </div>
+                        <div class="col-6 col-lg-3 mb-30">
+                            <!-- brand logo -->
+                            <img src="img/brand/brand-3.png" alt="brand">
+                        </div>
+                        <div class="col-6 col-lg-3 mb-30">
+                            <!-- brand logo -->
+                            <img src="img/brand/brand-4.png" alt="brand">
+                        </div>
+                    </div>
+                    <!-- Brand list end -->
+                </div>
+            </div>
+            <!-- Brands end -->
+            <!-- Call to action -->
+            <section class="call-to-action" style="background-image: url(img/portfolio/lg/2.jpg); background-position: center">
+                <!-- Gradient overlay -->
+                <div class="overlay-2 p-0-0-90">
+                    <div class="container text-center">
+                        <h2 class="bold mb-30">What are you waiting for? <br> <span class="color">Kickstart</span> your <span class="color">dream</span> <br>project today.</h2>
+                        <p class="light opas mb-30">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate aliquid voluptates, cum facere. <br> Deserunt ad illum facilis numquam nobis voluptatibus repellat iure suscipit nemo voluptate. <br> Quos, ab vitae consequatur est.</p>
+                        <!-- Button -->
+                        <a href="contact.html" class="button button-1 new-page mb-30">Contact us <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <!-- Gradient overlay end -->
+            </section>
+            <!-- Call to action -->
+            <!-- Footer -->
+            <footer class="footer p-90-0-60">
+                <!-- dotted background -->
+                <div class="dots"></div>
+                <div class="container text-center text-md-left">
+                    <div class="row text-center text-md-left footer-content mb-30">
+                        <div class="col-12 col-md-12 col-lg-8 mb-30">
+                            <!-- Logo -->
+                            <div class="logo mb-30">
+                                <a href="index.html" class="new-page">
+                                    <!--<img style="width: 100px;" src="img/your_logo.png" alt="logo">-->
+                                    <p class="logo-text">S<span class="color logo-fix">o</span>nix</p>
+                                </a>
+                            </div>
+                            <!-- Logo end -->
+                            <!-- Footer text -->
+                            <p class="light opas mb-30">Deserunt ad illum facilis numquam nobis voluptatibus <br>repellat iure suscipit nemo voluptate. <br> Quos, ab vitae!</p>
+                            <!-- Phone -->
+                            <p class="cont light mb-10"><i class="color fas fa-mobile"></i><span class="color">phone:</span> +38 (050) 735 XX 65</p>
+                            <!-- Adres -->
+                            <p class="cont light"><i class="color fas fa-map-marker-alt"></i><span class="color">address:</span> Shevchenka st. 77 NY USA</p>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-2 mb-30">
+                            <!-- Title -->
+                            <h5 class="up bold mb-30">Menu</h5>
+                            <!-- Footer list 1 -->
+                            <ul>
+                                <!-- Footer list item -->
+                                <li class="footer-link mb-10"><a href="#.">Home page</a></li>
+                                <!-- Footer list item -->
+                                <li class="footer-link mb-10"><a href="#.">About us</a></li>
+                                <!-- Footer list item -->
+                                <li class="footer-link mb-10"><a href="#.">Our portfolio</a></li>
+                                <!-- Footer list item -->
+                                <li class="footer-link mb-10"><a href="#.">Newsletter</a></li>
+                                <!-- Footer list item -->
+                                <li class="footer-link mb-10"><a href="#.">Get in touch</a></li>
+                            </ul>
+                            <!-- Footer list 1 end -->
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-2 mb-30">
+                            <!-- Title -->
+                            <h5 class="up bold mb-30">Useful links</h5>
+                            <!-- Footer list 2 -->
+                            <ul>
+                                <!-- Footer list item -->
+                                <li class="footer-link mb-10"><a href="#.">Your Account</a></li>
+                                <!-- Footer list item -->
+                                <li class="footer-link mb-10"><a href="#.">Become an Affiliate</a></li>
+                                <!-- Footer list item -->
+                                <li class="footer-link mb-10"><a href="#.">Shipping Rates</a></li>
+                                <!-- Footer list item -->
+                                <li class="footer-link mb-10"><a href="#.">Help</a></li>
+                            </ul>
+                            <!-- Footer list 2 end-->
+                        </div>
+                    </div>
+                    <div class="row copy">
+                        <div class="col-12 col-lg-6 align-self-center mb-30">
+                            <!-- Social icons -->
+                            <ul class="social">
+                                <!-- Social link -->
+                                <li><a href="#."><i class="fab fa-facebook-f"></i></a></li>
+                                <!-- Social link -->
+                                <li><a href="#."><i class="fab fa-twitter"></i></a></li>
+                                <!-- Social link -->
+                                <li><a href="#."><i class="fab fa-behance"></i></a></li>
+                                <!-- Social link -->
+                                <li><a href="#."><i class="fab fa-pinterest-p"></i></a></li>
+                                <!-- Social link -->
+                                <li><a href="#."><i class="fab fa-github"></i></a></li>
+                            </ul>
+                            <!-- Social icons end -->
+                        </div>
+                        <div class="col-12 col-lg-6 text-center text-md-left text-lg-right align-self-center mb-30">
+                            <!-- Copyright -->
+                            <p class="light"><span class="opas">Copyright 2019. Design and dewelopment:</span> <a class="color" href="https://themeforest.net/user/millerdigitaldesign/portfolio?ref=MillerDigitalDesign">Nazar Miller</a></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer end -->
+        </div>
+        <!-- Page end -->
+    </div>
+    <!-- Frame end -->
+
+    <!-- jQuery -->
+    <script src="js/plugins/jquery.min.js"></script>
+    <!-- Anime -->
+    <script src="js/plugins/anime.min.js"></script>
+    <!-- Swiper -->
+    <script src="js/plugins/swiper.min.js"></script>
+    <!-- Smooth scroll -->
+    <script src="js/plugins/smooth-scroll.min.js"></script>
+    <!-- Howler -->
+    <script src="js/plugins/howler.min.js"></script>
+    <!-- Isotope -->
+    <script src="js/plugins/isotope.min.js"></script>
+    <!-- Tilt -->
+    <script src="js/plugins/tilt.jquery.js"></script>
+    <!-- Waypoints -->
+    <script src="js/plugins/waypoint.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/plugins/bootstrap.min.js"></script>
+    <!-- Main -->
+    <script src="js/main.js"></script>
+
+    <!-- Demo js -->
+    <script src="demo/demo.js"></script>
+
+</body>
+
+</html>

@@ -1,9 +1,6 @@
-
-
-.row {
+/* .row {
   display: table;
-}
-
+} */
 .wall {
   background-color: brown;
 }
@@ -22,8 +19,8 @@
 
 .wall, .space, .pacman, .coin, .monster, .collision {
   height: 30px;
-  width:  30px;
-  display: table-cell;
+  width: 30px;
+  display: inline-block;
 }
 
 .monster {

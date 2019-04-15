@@ -66,21 +66,81 @@ class Game {
   }
 
 
+  // drawMap() {
+  //   document.getElementById("map").innerHTML = "";
+  //
+  //   for (let j = 0; j < this.map.length; j++) {
+  //
+  //     let row = document.createElement("div");
+  //     row.className = "row";
+  //     document.getElementById("map").appendChild(row);
+  //
+  //     for (let i = 0; i < this.map[j].length; i++) {
+  //       let block = this._createBlock(this.map[j][i]);
+  //       row.appendChild(block);
+  //     }
+  //   }
+  // }
+
   drawMap() {
-    document.getElementById("map").innerHTML = "";
-
-    for (let j = 0; j < this.map.length; j++) {
-
-      let row = document.createElement("div");
-      row.className = "row";
-      document.getElementById("map").appendChild(row);
-
-      for (let i = 0; i < this.map[j].length; i++) {
-        let block = this._createBlock(this.map[j][i]);
-        row.appendChild(block);
+    let world = document.getElementById("world");
+    world.innerHTML = "";
+    for (let y = 0; y < this.map.length; y++) {
+      for (let x = 0; x < this.map[y].length; x++) {
+        if (this.map[y][x] === 1) {
+          world.innerHTML += "<div class='wall'></div>";
+        } else if (this.map[y][x] === 2) {
+          world.innerHTML += "<div class='pacman'></div>";
+        } else if (this.map[y][x] === 3) {
+          world.innerHTML += "<div class='coin'></div>";
+        } else if (this.map[y][x] === 4) {
+          world.innerHTML += "<div class='monster'></div>";
+        } else if (this.map[y][x] === 5) {
+          world.innerHTML += "<div class='collision'></div>";
+        } else if (this.map[y][x] === 0) {
+          world.innerHTML += "<div class='space'></div>";
+        }
       }
+      world.innerHTML += "<br>";
     }
   }
+
+
+  // drawMap() {
+  //   let map = document.getElementById("map");
+  //   map.innerHTML = " ";
+  //   for (let y = 0; y < this.map.length; y++) {
+  //     for (var x = 0; x < this.map[y].length; x++) {
+  //       switch (this.map[y][x]) {
+  //         case 0:
+  //           map.appendChild(this._createBlock(0));
+  //           break;
+  //         case 1:
+  //           map.appendChild(this._createBlock(1));
+  //           break;
+  //         case 2:
+  //           map.appendChild(this._createBlock(2));
+  //           break;
+  //         case 3:
+  //           map.appendChild(this._createBlock(3));
+  //           break;
+  //         case 4:
+  //           map.appendChild(this._createBlock(4));
+  //           break;
+  //         case 5:
+  //           map.appendChild(this._createBlock(5));
+  //           break;
+  //         case 6:
+  //           map.appendChild(this._createBlock(6));
+  //           break;
+  //       }
+  //       //map.appendChild("<br>");
+  //     }
+  //   }
+  // }
+
+
+
 
   moveMonsters() {
     for (let i = 0; i < this.monsters.length; i++) {
@@ -145,7 +205,7 @@ class Game {
 
   isPacmanDead() {
     for (let i = 0; i < this.monsters.length; i++) {
-      if (this.monsters[i].x == this.pacman.x && this.monsters[i].y == this.pacman.y){
+      if (this.monsters[i].x == this.pacman.x && this.monsters[i].y == this.pacman.y) {
         this.map[this.pacman.y][this.pacman.x] = 5;
         return true;
       }
@@ -162,11 +222,11 @@ class Game {
   //   console.log("Lifes is " + this.lifes);
   // }
 
-  _createBlock(n) {
-    let block = document.createElement("div");
-    block.className = styles[n];
-    return block;
-  }
+  // _createBlock(n) {
+  //   let block = document.createElement("div");
+  //   block.className = styles[n];
+  //   return block;
+  // }
 }
 
 const S = 0; // space

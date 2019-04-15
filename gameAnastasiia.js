@@ -10,16 +10,23 @@ class Monster {
 }
 
 class Game {
-  constructor(map, maxScore, lifes, speed, pacmanX, pacmanY, monsters) {
-    this.map = map;
+  constructor(map, maxScore, speed, monsters) {
+    this.map = createMap(map);
+
+    function createMap(m) {
+      let result = [];
+      for (let i = 0; i < map.length; i++) {
+        result.push(map[i].slice());
+      }
+      return result;
+    };
     this.score = 0;
     this.maxScore = maxScore;
-    this.lifes = lifes;
     this.speed = speed;
 
     this.pacman = {
-      x: pacmanX, //pacman current x position
-      y: pacmanY, // pacman current y position
+      x: 6, //pacman current x position
+      y: 6, // pacman current y position
       dx: 0, // current x direction
       dy: 0 //current y direction
     }
@@ -28,6 +35,7 @@ class Game {
   }
 
   startGame() {
+    //this.isGameFinished() = false;
     document.onkeydown = (e) => {
       const L = 37; // left
       const U = 38; // up
@@ -65,23 +73,6 @@ class Game {
     }
   }
 
-
-  // drawMap() {
-  //   document.getElementById("map").innerHTML = "";
-  //
-  //   for (let j = 0; j < this.map.length; j++) {
-  //
-  //     let row = document.createElement("div");
-  //     row.className = "row";
-  //     document.getElementById("map").appendChild(row);
-  //
-  //     for (let i = 0; i < this.map[j].length; i++) {
-  //       let block = this._createBlock(this.map[j][i]);
-  //       row.appendChild(block);
-  //     }
-  //   }
-  // }
-
   drawMap() {
     let world = document.getElementById("world");
     world.innerHTML = "";
@@ -105,43 +96,6 @@ class Game {
     }
   }
 
-
-  // drawMap() {
-  //   let map = document.getElementById("map");
-  //   map.innerHTML = " ";
-  //   for (let y = 0; y < this.map.length; y++) {
-  //     for (var x = 0; x < this.map[y].length; x++) {
-  //       switch (this.map[y][x]) {
-  //         case 0:
-  //           map.appendChild(this._createBlock(0));
-  //           break;
-  //         case 1:
-  //           map.appendChild(this._createBlock(1));
-  //           break;
-  //         case 2:
-  //           map.appendChild(this._createBlock(2));
-  //           break;
-  //         case 3:
-  //           map.appendChild(this._createBlock(3));
-  //           break;
-  //         case 4:
-  //           map.appendChild(this._createBlock(4));
-  //           break;
-  //         case 5:
-  //           map.appendChild(this._createBlock(5));
-  //           break;
-  //         case 6:
-  //           map.appendChild(this._createBlock(6));
-  //           break;
-  //       }
-  //       //map.appendChild("<br>");
-  //     }
-  //   }
-  // }
-
-
-
-
   moveMonsters() {
     for (let i = 0; i < this.monsters.length; i++) {
       this.moveMonster(this.monsters[i]);
@@ -154,10 +108,10 @@ class Game {
     let w = this.map[0].length - 1
     let h = this.map.length - 1
 
-    if (y > 0 && (this.map[y - 1][x + 0] == S || this.map[y - 1][x + 0] == C)) opts.push([+0, -1]); // up
-    if (x < w && (this.map[y - 0][x + 1] == S || this.map[y - 0][x + 1] == C)) opts.push([+1, +0]); // right
-    if (y < h && (this.map[y + 1][x + 0] == S || this.map[y + 1][x + 0] == C)) opts.push([+0, +1]); // down
-    if (x > 0 && (this.map[y - 0][x - 1] == S || this.map[y - 0][x - 1] == C)) opts.push([-1, +0]); // left
+    if (y > 0 && (this.map[y - 1][x + 0] == S || this.map[y - 1][x + 0] == C || this.map[y - 1][x + 0] == P)) opts.push([+0, -1]); // up
+    if (x < w && (this.map[y - 0][x + 1] == S || this.map[y - 0][x + 1] == C || this.map[y - 0][x + 1] == P)) opts.push([+1, +0]); // right
+    if (y < h && (this.map[y + 1][x + 0] == S || this.map[y + 1][x + 0] == C || this.map[y + 1][x + 0] == P)) opts.push([+0, +1]); // down
+    if (x > 0 && (this.map[y - 0][x - 1] == S || this.map[y - 0][x - 1] == C || this.map[y - 0][x - 1] == P)) opts.push([-1, +0]); // left
 
     if (opts.length > 0)
       return opts[Math.floor(Math.random() * opts.length)];
@@ -216,17 +170,6 @@ class Game {
     this.score++;
     console.log("Score is " + this.score);
   }
-
-  // looseLifes() {
-  //   this.lifes--;
-  //   console.log("Lifes is " + this.lifes);
-  // }
-
-  // _createBlock(n) {
-  //   let block = document.createElement("div");
-  //   block.className = styles[n];
-  //   return block;
-  // }
 }
 
 const S = 0; // space
@@ -244,7 +187,9 @@ let monsters = [
   new Monster(1, 9)
 ]
 
-let matrix = [
+
+
+let originalMatrix = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1],
   [1, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1],
@@ -260,5 +205,13 @@ let matrix = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
-let game = new Game(matrix, 11, 5, 500, 6, 6, monsters);
-game.startGame();
+
+let game = new Game(originalMatrix, 11, 500, monsters);
+game.drawMap();
+
+function play() {
+  let monsters = [new Monster(1, 11), new Monster(1, 9)];
+  game = new Game(originalMatrix, 11, 100, monsters);
+  console.log(originalMatrix);
+  game.startGame();
+}

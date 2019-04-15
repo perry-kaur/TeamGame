@@ -2,7 +2,7 @@ class Monster {
   constructor(x, y) {
     this.x = x; //current x position
     this.y = y; //current y position
-    this.p = 1; //
+    this.p = 1; //wish to turn
     this.dx = 0; //current x direction
     this.dy = 0; //current y direction
     this.v = S;
@@ -10,10 +10,12 @@ class Monster {
 }
 
 class Game {
-  constructor(map, pacmanX, pacmanY) {
+  constructor(map, maxScore, lifes, speed, pacmanX, pacmanY, monsters) {
     this.map = map;
     this.score = 0;
-    this.lifes = 5;
+    this.maxScore = maxScore;
+    this.lifes = lifes;
+    this.speed = speed;
 
     this.pacman = {
       x: pacmanX, //pacman current x position
@@ -22,10 +24,7 @@ class Game {
       dy: 0 //current y direction
     }
 
-    this.monsters = [
-      new Monster(1, 11),
-      new Monster(1, 9)
-    ]
+    this.monsters = monsters;
   }
 
   startGame() {
@@ -46,7 +45,7 @@ class Game {
   }
 
   isGameFinished() {
-    return this.score >= 11 || this.pacmanDies();
+    return this.score >= this.maxScore || this.isPacmanDead();
   }
 
   loop() {
@@ -56,13 +55,13 @@ class Game {
 
       this.moveMonsters();
 
-      this.pacmanDies();
+      this.isPacmanDead();
 
       this.drawMap();
 
       setTimeout(() => {
         this.loop()
-      }, 500)
+      }, this.speed)
     }
   }
 
@@ -144,7 +143,7 @@ class Game {
     }
   }
 
-  pacmanDies() {
+  isPacmanDead() {
     for (let i = 0; i < this.monsters.length; i++) {
       if (this.monsters[i].x == this.pacman.x && this.monsters[i].y == this.pacman.y){
         this.map[this.pacman.y][this.pacman.x] = 5;
@@ -170,7 +169,7 @@ class Game {
   }
 }
 
-const S = 0; // spce
+const S = 0; // space
 const W = 1; // wall
 const P = 2; // pacman
 const C = 3; // coin
@@ -178,6 +177,12 @@ const M = 4; // monster
 
 
 const styles = ["space", "wall", "pacman", "coin", "monster", "collision"];
+
+//1st level configs
+let monsters = [
+  new Monster(1, 11),
+  new Monster(1, 9)
+]
 
 let matrix = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -195,5 +200,5 @@ let matrix = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 
-let game = new Game(matrix, 6, 6);
+let game = new Game(matrix, 11, 5, 500, 6, 6, monsters);
 game.startGame();

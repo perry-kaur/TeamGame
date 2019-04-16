@@ -29,4 +29,15 @@
 
 .collision {
   background-color: red;
+  animation: fade 3s steps(90) forwards;
+}
+
+@keyframes fade {
+  from {
+    background-color: red;
+  }
+
+  to {
+    background-color: black;
+  }
 }

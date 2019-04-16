@@ -67,6 +67,14 @@ class Game {
 
       this.drawMap();
 
+      if (this.isPacmanDead()) {
+        console.log("game over");
+      }
+
+      if (this.score >= 11) {
+        console.log("bravo!")
+      }
+
       setTimeout(() => {
         this.loop()
       }, this.speed)

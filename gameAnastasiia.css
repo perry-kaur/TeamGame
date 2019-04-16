@@ -1,0 +1,53 @@
+/* .row {
+  display: table;
+} */
+.world {
+  position: relative;
+}
+
+#result {
+  position: absolute;
+  font-size: 3em;
+  color: white;
+}
+
+.wall {
+  background-color: brown;
+}
+
+.space {
+  background-color: black;
+}
+
+.pacman {
+  background-color: yellow;
+}
+
+.coin {
+  background-image: radial-gradient(yellow, black, black);
+}
+
+.wall, .space, .pacman, .coin, .monster, .collision {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
+
+.monster {
+  background-color: blue;
+}
+
+.collision {
+  background-color: red;
+  animation: fade 3s steps(90) forwards;
+}
+
+@keyframes fade {
+  from {
+    background-color: red;
+  }
+
+  to {
+    background-color: black;
+  }
+}

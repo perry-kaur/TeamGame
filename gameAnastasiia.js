@@ -10,18 +10,9 @@ class Monster {
 }
 
 class Game {
-  constructor(map, maxScore, speed, monsters) {
-    this.map = createMap(map);
-
-    function createMap(m) {
-      let result = [];
-      for (let i = 0; i < map.length; i++) {
-        result.push(map[i].slice());
-      }
-      return result;
-    };
+  constructor(map, speed, monsters) {
+    this.map = this._createMap(map);
     this.score = 0;
-    this.maxScore = maxScore;
     this.speed = speed;
 
     this.pacman = {
@@ -32,7 +23,16 @@ class Game {
     }
 
     this.monsters = monsters;
+    this.isFinished = false;
   }
+
+  _createMap(m) {
+    let result = [];
+    for (let i = 0; i < m.length; i++) {
+      result.push(m[i].slice());
+    }
+    return result;
+  };
 
   startGame() {
     //this.isGameFinished() = false;
@@ -53,7 +53,7 @@ class Game {
   }
 
   isGameFinished() {
-    return this.score >= this.maxScore || this.isPacmanDead();
+    return this.score >= 11 || this.isPacmanDead() || this.isFinished;
   }
 
   loop() {
@@ -188,7 +188,6 @@ let monsters = [
 ]
 
 
-
 let originalMatrix = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1],
@@ -196,7 +195,7 @@ let originalMatrix = [
   [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
   [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1],
   [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 1],
   [1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1],
   [1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1],
   [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
@@ -209,9 +208,23 @@ let originalMatrix = [
 let game = new Game(originalMatrix, 11, 500, monsters);
 game.drawMap();
 
-function play() {
+function playFirst() {
+  game.isFinished = true;
   let monsters = [new Monster(1, 11), new Monster(1, 9)];
-  game = new Game(originalMatrix, 11, 100, monsters);
-  console.log(originalMatrix);
+  game = new Game(originalMatrix, 500, monsters);
+  game.startGame();
+}
+
+function playSecond() {
+  game.isFinished = true;
+  let monsters = [new Monster(1, 11), new Monster(1, 9), new Monster(3, 10)];
+  game = new Game(originalMatrix, 400, monsters);
+  game.startGame();
+}
+
+function playThird() {
+  game.isFinished = true;
+  let monsters = [new Monster(1, 11), new Monster(1, 9), new Monster(3, 10), new Monster(10, 3)];
+  game = new Game(originalMatrix, 300, monsters);
   game.startGame();
 }

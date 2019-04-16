@@ -68,6 +68,7 @@ class Game {
       this.drawMap();
 
       if (this.isPacmanDead()) {
+        // this.animateResult("GAME OVER");
         console.log("game over");
       }
 
@@ -177,6 +178,30 @@ class Game {
   updateScore() {
     this.score++;
     console.log("Score is " + this.score);
+  }
+
+  // showResult(text) {
+  //
+  // }
+  animateResult(text) {
+    // let result = document.createElement("div");
+    // result.id = "result";
+    // result.innerHTML = text;
+    //document.getElementById("world").appendChild(result);
+    let result = document.getElementById("result");
+    let posTop = 0;
+    let posLeft = 0;
+    let id = setInterval(frame, 50);
+
+    function frame() {
+      if (posTop == 3) {
+        clearInterval(id);
+      } else {
+        posTop++;
+        result.style.top = posTop + "em";
+        result.style.left = posLeft + "em";
+      }
+    }
   }
 }
 

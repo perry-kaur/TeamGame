@@ -1,0 +1,163 @@
+
+ /* .row {
+  display: table;
+} */
+.wall {
+  background-color:#a6c;
+}
+
+.space {
+  background-color: transparent;
+}
+
+.pacman {
+  background-color:gold;
+  border-radius: 50%;
+
+}
+
+.coin {
+  background-image: radial-gradient(white, transparent, transparent);
+
+}
+
+.wall, .space, .pacman, .coin, .monster, .collision {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
+
+.monster {
+  background-color: blue;
+  border-radius: 50px 50px 10px 10px;
+
+}
+
+.collision {
+  background-color: red;
+  border-radius: 50%;
+  animation: fade 3s steps(90) forwards;
+}
+
+@keyframes fade {
+  from {
+    background-color: red;
+  }
+
+  to {
+    background-color: transparent;
+  }
+}
+
+.monster {
+  height: 30px;
+  width: 30px;
+  background-color: rgb(233, 20, 71);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  animation: colorchange 0.9s linear infinite;
+
+ }
+ 
+ .eyeleft {
+  height: 10px;
+  width: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 50%;
+ }
+ 
+
+/* 
+.monster {
+  height: 30px;
+  width: 20px;
+  background-color: red;
+  border-top-left-radius: 75px;
+  border-top-right-radius: 75px;
+  animation: colorchange 0.7s linear infinite;
+}
+
+.monster::before, .monster::after {
+  content: "";
+  background: white;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  top: 30px;
+  position: absolute;
+  left: 15px;
+}
+
+.monster::after {
+  left: 40px;
+  background-color: white;
+}
+
+.eyeb::before, .eyeb::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  background-color: black;
+  border-radius: 50%;
+  top: 35px;
+  left: 20px;
+  z-index: 1;
+  animation: eballLeft 0.8s linear infinite;
+}
+
+.eyeb::after {
+  left: 45px;
+  top: 35px;
+  animation: eballRight 0.8s linear infinite;
+}
+
+.lines, .lines::after, .lines::before {
+  position: absolute;
+  height: 0px;
+  width: 0px;
+  border: solid white 10px;
+  border-top-color: transparent;
+  top: 55px;
+}
+
+.lines::before {
+  content: "";
+  top: -10px;
+  left: 10px;
+}
+
+.lines::after {
+  content: "";
+  top: -10px;
+  left: 30px;
+}
+
+@keyframes colorchange {
+  50% {
+    background-color: rgb(155, 67, 241);
+  }
+}
+
+@keyframes eballLeft {
+  0%, 100% {
+    left: 20px;
+  }
+
+  50% {
+    left: 15px;
+  }
+}
+
+@keyframes eballRight {
+  0%, 100% {
+    left: 45px;
+  }
+
+  50% {
+    left: 40px;
+  }
+} */

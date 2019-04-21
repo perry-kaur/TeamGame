@@ -70,6 +70,7 @@ class Game {
       if (this.isPacmanDead()) {
         // this.animateResult("GAME OVER");
         console.log("game over");
+        document.getElementById("result").innerHTML = ""
         document.getElementById("result").innerHTML = "GAME OVER"
         this.animateResult();
 
@@ -194,7 +195,7 @@ class Game {
     // result.innerHTML = text;
     //document.getElementById("world").appendChild(result);
     let result = document.getElementById("result");
-    let posTop = 0;
+    let posTop = -1;
     let posLeft = 1.5;
     let id = setInterval(frame, 200);
 

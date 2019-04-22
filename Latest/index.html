@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PACMAN</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,900" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+  
+  <div class="wrapper" id="wrapper">
+    <header class="header">
+      <div class="container">
+        <div class="top-header">
+          <div class="logo">
+            <a href="#">
+              <img src="img/pacman-logo.png" alt="pacman logo">
+            </a>
+          </div>
+          <div class="info-btn info-open" id="info-trigger">
+            <i class="fas fa-info-circle primary-color"></i>
+          </div>
+        </div>
+      </div>
+        
+      <div class="header-bg" style="background-image: url(img/horizon.jpg); background-position: center;"></div>
+      <div class="overlay"></div>
+      <div class="container header-content">
+        <div class="main-title text-center">
+          <div class="row packy-animation">
+            <div class="half-column">
+              <img src="img/packy.png" alt="packy" id="packy" class="packy-boy rotate-packy" style="height:90px">
+            </div>
+            <div class="half-column">
+              <div class="ghost ghost--inky">
+                <div class="ghost-eyes"></div>
+              </div>
+              <div class="ghost ghost--pinky">
+                <div class="ghost-eyes"></div>
+              </div>
+              <div class="ghost ghost--blinky">
+                <div class="ghost-eyes"></div>
+              </div>
+              <div class="ghost ghost--clyde">
+                <div class="ghost-eyes"></div>
+              </div>
+            </div> 
+          </div>
+          
+          <h1 class="bold">It used to be a <span class="primary-color">classic</span></h1>
+        </div>
+        <a href="game.html" class="play-game go-to-game" id="">Play Game</a>
+      </div>
+    </header>
+    <footer class="footer pb-60 pt-90">
+      <div class="dots"></div>
+      <div class="container text-center text-md-left">
+        <div class="row">
+          <div class="column">
+            <p class="op-6 fade">
+              WE* may not own the rights to Pacman, but the CODE is a &copy; of CHARLIE'S ANGELS.<br />
+              <span class="text-small primary-color">* - Perry, Katri, Anastasiia &amp; Joseph. 2019</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Game info Modal -->
+  <div class="modal" id="info-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-modal">×</span>
+      <h4>How to Play</h4>
+      <img src="img/keys.svg" alt="arrow keys" class="arrow-keys" >
+      <p>Use your respective Keyboard arrow keys to move UP, DOWN, RIGHT, LEFT.</p>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

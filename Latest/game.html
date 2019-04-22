@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PACMAN</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,900" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+
+<body>
+
+  <div class="wrapper" id="wrapper">
+    
+    <section id="#game-area" class="game-area">
+      <div class="overlay-2"></div>
+      <div class="container">
+        <div class="row">
+          <div class="column mb-10">
+            <div class="game-header">
+              <div class="row">
+                <div class="three-quarter-column">
+                    <div class="box borderless">
+                      <div class="box-content transparent text-left">
+                          <span class="box-text" onclick="playFirst()" style="cursor:pointer">START</span>
+                         <!-- <button class="button" onclick="playFirst()">Level 1</button>-->
+                          <button class="button" onclick="playSecond()"><span class="text-small">LEVEL 2</span></button>
+                          <button class="button" onclick="playThird()"><span class="text-small">LEVEL 3</span></button>
+                      </div>
+                    </div>
+                  </div>
+                <div class="quarter-column">
+                  <div class="box">
+                    <div class="box-content">
+                      <div class="box-icon"><i class="fas fa-award" id="score-icon"></i></div>
+                      <p class="box-text" id="game-score">0</p>
+                    </div>
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div id="world" style="margin-left: 15%;">
+              <div id="modal-hook"></div>
+            </div> 
+          </div>
+          <div class="column" id="hook">
+            <!--<button class="button" id="replay-game"></button>-->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!---<script src="js/game.js"></script>-->
+  <script src="js/pacman.js"></script>
+
+</body>
+
+</html>
